@@ -1,3 +1,5 @@
+var timerEl = document.getElementById('timer');
+var startEl = document.getElementById('start-quiz');
 var quizQuestionsAndAnswers = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -49,16 +51,17 @@ var quizQuestionsAndAnswers = [
   },
 ];
 var timeLeft = 90;
-countdown()
 
-function countdown(){
+
+startEl.addEventListener("click", function(){
     var timeInterval = setInterval(function() {
         if(timeLeft === 0) {
             clearInterval(timeInterval);
+            timerEl.textContent = "Time: " + timeLeft
             console.log("Sorry! Times up");
         } else {
-            console.log(timeLeft);
+            timerEl.textContent = "Time: " + timeLeft
             timeLeft--;
         }
     }, 1000);
-}
+}) 
