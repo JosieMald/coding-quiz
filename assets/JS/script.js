@@ -48,3 +48,17 @@ var quizQuestionsAndAnswers = [
     correctAnswer: 2,
   },
 ];
+var timeLeft = 90;
+countdown()
+
+function countdown(){
+    var timeInterval = setInterval(function() {
+        if(timeLeft === 0) {
+            clearInterval(timeInterval);
+            console.log("Sorry! Times up");
+        } else {
+            console.log(timeLeft);
+            timeLeft--;
+        }
+    }, 1000);
+}
