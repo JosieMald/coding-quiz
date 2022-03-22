@@ -1,5 +1,6 @@
-var timerEl = document.getElementById('timer');
-var startEl = document.getElementById('start-quiz');
+var timerEl = document.getElementById("timer");
+var startEl = document.getElementById("start-button");
+
 var quizQuestionsAndAnswers = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -51,17 +52,17 @@ var quizQuestionsAndAnswers = [
   },
 ];
 var timeLeft = 90;
+// timerEl.textContent = "Time: " + timeLeft;
 
-
-startEl.addEventListener("click", function(){
-    var timeInterval = setInterval(function() {
-        if(timeLeft === 0) {
-            clearInterval(timeInterval);
-            timerEl.textContent = "Time: " + timeLeft
-            console.log("Sorry! Times up");
-        } else {
-            timerEl.textContent = "Time: " + timeLeft
-            timeLeft--;
-        }
-    }, 1000);
-}) 
+startEl.addEventListener("click", function () {
+  var timeInterval = setInterval(function () {
+    if (timeLeft === 0) {
+      clearInterval(timeInterval);
+      timerEl.textContent = "Time: " + timeLeft;
+      console.log("Sorry! Times up");
+    } else {
+      timerEl.textContent = "Time: " + timeLeft;
+      timeLeft--;
+    }
+  }, 1000);
+});
