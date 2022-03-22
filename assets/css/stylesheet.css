@@ -1,10 +1,33 @@
 h1 {
-    color: blueviolet;
+  color: blueviolet;
 }
 
 #timer {
-    position: absolute;
-    text-align: end;
-    top: 0px;
-    right: 10px;
+  position: absolute;
+  text-align: end;
+  top: 0px;
+  right: 10px;
+}
+
+#quiz-info {
+  width: 75%;
+  margin-left: 15%;
+}
+
+#quiz-info h1 {
+  font-size: 45px;
+  margin-top: 5%;
+  text-align: center;
+}
+
+#quiz-info p {
+  text-align: center;
+  font-size: 20px;
+}
+
+#start-button {
+  position: relative;
+  left: 43%;
+  font-size: 20px;
+  margin-top: 10px;
 }
