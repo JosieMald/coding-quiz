@@ -12,20 +12,24 @@
       <h3>View Highscores</h3>
       <h3 id="timer"></h3>
     </header>
-    <section id="quiz-info">
-      <h1>Coding Quiz Challenge</h1>
-      <p>
-        Try to answer the following code-related questions within the time
-        limit. Keep in mind that incorrect answers will penalize your scoreTime
-        by ten seconds!
-      </p>
-      <button id="start-button">Start Quiz</button>
-    </section>
-    <!-- <section >
-        <h1>HELLO</h1>
-
-    </section> -->
-
+    <div class="container">
+      <section id="quiz-info" class="display">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          scoreTime by ten seconds!
+        </p>
+        <button id="start-button">Start Quiz</button>
+      </section>
+      <section id="quiz-container">
+        <h3 id="question">Questions</h3>
+        <p id="answer-zero" class="box" data-number="0">answer zero</p>
+        <p id="answer-one" class="box" data-number="1">answer one</p>
+        <p id="answer-two" class="box" data-number="2">answer two</p>
+        <p id="answer-three" class="box" data-number="3">answer three</p>
+      </section>
+    </div>
     <script src="./assets/JS/script.js"></script>
   </body>
 </html>

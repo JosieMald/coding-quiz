@@ -2,6 +2,14 @@ h1 {
   color: blueviolet;
 }
 
+.display {
+  display: none;
+}
+
+.container {
+  width: 75%;
+  margin-left: 15%;
+}
 #timer {
   position: absolute;
   text-align: end;
@@ -10,24 +18,20 @@ h1 {
 }
 
 #quiz-info {
-  width: 75%;
-  margin-left: 15%;
+  text-align: center;
 }
 
 #quiz-info h1 {
   font-size: 45px;
   margin-top: 5%;
-  text-align: center;
 }
 
 #quiz-info p {
-  text-align: center;
   font-size: 20px;
 }
 
 #start-button {
   position: relative;
-  left: 43%;
   font-size: 20px;
   margin-top: 10px;
 }

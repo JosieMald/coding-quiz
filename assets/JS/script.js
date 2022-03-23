@@ -1,5 +1,8 @@
 var timerEl = document.getElementById("timer");
 var startEl = document.getElementById("start-button");
+var quizInfoEl = document.getElementById("quiz-info");
+var quizContainersEl = document.getElementById("quiz-container");
+
 
 var quizQuestionsAndAnswers = [
   {
@@ -52,10 +55,11 @@ var quizQuestionsAndAnswers = [
   },
 ];
 var timeLeft = 90;
-// timerEl.textContent = "Time: " + timeLeft;
 
 startEl.addEventListener("click", function () {
-  var timeInterval = setInterval(function () {
+    quizInfoEl.classList.add("display");
+    // quizQuestionsEl.classList.remove("display")
+    var timeInterval = setInterval(function () {
     if (timeLeft === 0) {
       clearInterval(timeInterval);
       timerEl.textContent = "Time: " + timeLeft;
@@ -66,3 +70,23 @@ startEl.addEventListener("click", function () {
     }
   }, 1000);
 });
+
+let question = quizQuestionsAndAnswers[0].question
+// let answerZero = document.getElementsByClassName("answer-zero")
+let choice0 = quizQuestionsAndAnswers[0].choices[0]
+let choice1 = quizQuestionsAndAnswers[0].choices[1]
+let choice2 = quizQuestionsAndAnswers[0].choices[2]
+let choice3 = quizQuestionsAndAnswers[0].choices[3]
+// answerZero.textContent = choice0
+
+
+// document.getElementsByClassName("answer-zero").innerHTML = answerZero;
+document.getElementById("question").innerHTML = question;
+document.getElementById("answer-zero").innerHTML = choice0
+document.getElementById("answer-one").innerHTML = choice1
+document.getElementById("answer-two").innerHTML = choice2
+document.getElementById("answer-three").innerHTML = choice3
+
+quizContainersEl.addEventListener("click", function(event){
+    element = event.target;
+})
