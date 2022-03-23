@@ -35,3 +35,12 @@ h1 {
   font-size: 20px;
   margin-top: 10px;
 }
+
+#quiz-container h3 {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#quiz-container p {
+    padding-left: 35%;
+}

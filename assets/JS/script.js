@@ -3,7 +3,6 @@ var startEl = document.getElementById("start-button");
 var quizInfoEl = document.getElementById("quiz-info");
 var quizContainersEl = document.getElementById("quiz-container");
 
-
 var quizQuestionsAndAnswers = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -57,9 +56,8 @@ var quizQuestionsAndAnswers = [
 var timeLeft = 90;
 
 startEl.addEventListener("click", function () {
-    quizInfoEl.classList.add("display");
-    // quizQuestionsEl.classList.remove("display")
-    var timeInterval = setInterval(function () {
+  quizInfoEl.classList.add("display");
+  var timeInterval = setInterval(function () {
     if (timeLeft === 0) {
       clearInterval(timeInterval);
       timerEl.textContent = "Time: " + timeLeft;
@@ -68,25 +66,48 @@ startEl.addEventListener("click", function () {
       timerEl.textContent = "Time: " + timeLeft;
       timeLeft--;
     }
+    quizContainersEl.classList.remove("display");
   }, 1000);
+  nextQuestion();
+});
+let i = 0;
+
+function nextQuestion() {
+  if (i >= quizQuestionsAndAnswers.length) {
+    highScores();
+  } else {
+    let question = quizQuestionsAndAnswers[i].question;
+    let choice0 = quizQuestionsAndAnswers[i].choices[0];
+    let choice1 = quizQuestionsAndAnswers[i].choices[1];
+    let choice2 = quizQuestionsAndAnswers[i].choices[2];
+    let choice3 = quizQuestionsAndAnswers[i].choices[3];
+  
+    document.getElementById("question").innerHTML = question;
+    document.getElementById("answer-zero").innerHTML = choice0;
+    document.getElementById("answer-one").innerHTML = choice1;
+    document.getElementById("answer-two").innerHTML = choice2;
+    document.getElementById("answer-three").innerHTML = choice3;
+  }
+}
+
+quizContainersEl.addEventListener("click", function (event) {
+  element = event.target;
+  let correctAnswer = quizQuestionsAndAnswers[i].correctAnswer;
+
+  if (element.matches(".box")) {
+    var selection = element.getAttribute("data-number");
+  }
+  if (selection == correctAnswer) {
+    i++;
+    nextQuestion();
+  } else {
+    i++;
+    timeLeft -= 10;
+    nextQuestion();
+  }
 });
 
-let question = quizQuestionsAndAnswers[0].question
-// let answerZero = document.getElementsByClassName("answer-zero")
-let choice0 = quizQuestionsAndAnswers[0].choices[0]
-let choice1 = quizQuestionsAndAnswers[0].choices[1]
-let choice2 = quizQuestionsAndAnswers[0].choices[2]
-let choice3 = quizQuestionsAndAnswers[0].choices[3]
-// answerZero.textContent = choice0
-
-
-// document.getElementsByClassName("answer-zero").innerHTML = answerZero;
-document.getElementById("question").innerHTML = question;
-document.getElementById("answer-zero").innerHTML = choice0
-document.getElementById("answer-one").innerHTML = choice1
-document.getElementById("answer-two").innerHTML = choice2
-document.getElementById("answer-three").innerHTML = choice3
-
-quizContainersEl.addEventListener("click", function(event){
-    element = event.target;
-})
+function highScores(){
+    quizContainersEl.classList.add("display");
+    console.log("we did it!!")
+}
