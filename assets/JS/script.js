@@ -64,11 +64,14 @@ startEl.addEventListener("click", function () {
   quizInfoEl.classList.add("display");
   var timeInterval = setInterval(function () {
     if (i === quizQuestionsAndAnswers.length) {
-      localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
-      console.log("This is where the timer should stop: " + timeLeft);
       clearInterval(timeInterval);
       timerEl.textContent = "Time: " + timeLeft;
       console.log("Sorry! Times up");
+    } else if(timeLeft == 0) {
+        clearInterval(timeInterval);
+        timerEl.textContent = "Time: " + timeLeft;
+        i = quizQuestionsAndAnswers.length;
+        nextQuestion();
     } else {
       timerEl.textContent = "Time: " + timeLeft;
       timeLeft--;
@@ -80,12 +83,12 @@ startEl.addEventListener("click", function () {
 
 function nextQuestion() {
   if (i >= quizQuestionsAndAnswers.length) {
-    quizContainersEl.classList.add("display");
-    document.getElementById("question").innerHTML = "";
-    document.getElementById("answer-zero").innerHTML = "";
-    document.getElementById("answer-one").innerHTML = "";
-    document.getElementById("answer-two").innerHTML = "";
-    document.getElementById("answer-three").innerHTML = "";
+      document.getElementById("question").innerHTML = "";
+      document.getElementById("answer-zero").innerHTML = "";
+      document.getElementById("answer-one").innerHTML = "";
+      document.getElementById("answer-two").innerHTML = "";
+      document.getElementById("answer-three").innerHTML = "";
+      quizContainersEl.classList.add("display");
     enterScoreEl.classList.remove("display");
   } else {
     let question = quizQuestionsAndAnswers[i].question;
@@ -135,5 +138,9 @@ submitEl.addEventListener("click", function (event) {
 function highScores() {
     enterScoreEl.classList.add("display")
     highScoresEl.classList.remove("display")
+    var savedHighScores = JSON.parse(localStorage.getItem(userHighScores));
+    if (savedHighScores != null) {
+
+    }
   console.log("we did it!!");
 }
