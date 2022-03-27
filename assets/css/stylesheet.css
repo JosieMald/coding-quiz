@@ -17,7 +17,7 @@ h1 {
   right: 10px;
 }
 
-#quiz-info {
+#quiz-info, #high-scores{
   text-align: center;
 }
 
@@ -50,4 +50,8 @@ h1 {
 
 #high-scores h1 {
   font-size: 35px;
+}
+
+#list-scores {
+  padding: 0;
 }

@@ -133,7 +133,7 @@ submitEl.addEventListener("click", function (event) {
 });
 
 function highScores() {
-  // enterScoreEl.classList.add("display");
+  enterScoreEl.classList.add("display");
   highScoresEl.classList.remove("display");
   var savedHighScores = JSON.parse(localStorage.getItem("userHighScores"));
   document.getElementById("list-scores").innerHTML = "";
@@ -153,3 +153,20 @@ function highScores() {
     }
   }
 }
+
+var playAgain = document.getElementById("play-again");
+var clearScores = document.getElementById("clear-scores");
+
+playAgain.addEventListener("click", function (event) {
+  event.preventDefault();
+  timeLeft = 90;
+  i = 0;
+  highScoresEl.classList.add("display");
+  quizInfoEl.classList.remove("display");
+});
+
+clearScores.addEventListener("click", function(){
+  userHighScores = []
+  localStorage.clear();
+  console.log("I clicked");
+})
