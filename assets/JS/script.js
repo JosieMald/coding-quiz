@@ -67,11 +67,11 @@ startEl.addEventListener("click", function () {
       clearInterval(timeInterval);
       timerEl.textContent = "Time: " + timeLeft;
       console.log("Sorry! Times up");
-    } else if(timeLeft == 0) {
-        clearInterval(timeInterval);
-        timerEl.textContent = "Time: " + timeLeft;
-        i = quizQuestionsAndAnswers.length;
-        nextQuestion();
+    } else if (timeLeft == 0) {
+      clearInterval(timeInterval);
+      timerEl.textContent = "Time: " + timeLeft;
+      i = quizQuestionsAndAnswers.length;
+      nextQuestion();
     } else {
       timerEl.textContent = "Time: " + timeLeft;
       timeLeft--;
@@ -83,12 +83,12 @@ startEl.addEventListener("click", function () {
 
 function nextQuestion() {
   if (i >= quizQuestionsAndAnswers.length) {
-      document.getElementById("question").innerHTML = "";
-      document.getElementById("answer-zero").innerHTML = "";
-      document.getElementById("answer-one").innerHTML = "";
-      document.getElementById("answer-two").innerHTML = "";
-      document.getElementById("answer-three").innerHTML = "";
-      quizContainersEl.classList.add("display");
+    document.getElementById("question").innerHTML = "";
+    document.getElementById("answer-zero").innerHTML = "";
+    document.getElementById("answer-one").innerHTML = "";
+    document.getElementById("answer-two").innerHTML = "";
+    document.getElementById("answer-three").innerHTML = "";
+    quizContainersEl.classList.add("display");
     enterScoreEl.classList.remove("display");
   } else {
     let question = quizQuestionsAndAnswers[i].question;
@@ -122,8 +122,6 @@ quizContainersEl.addEventListener("click", function (event) {
   }
 });
 
-
-
 submitEl.addEventListener("click", function (event) {
   event.preventDefault();
   userHighScores.push({
@@ -131,16 +129,27 @@ submitEl.addEventListener("click", function (event) {
     time: timeLeft,
   });
   localStorage.setItem("userHighScores", JSON.stringify(userHighScores));
-  console.log("I clicked the button. what do now?");
   highScores();
 });
 
 function highScores() {
-    enterScoreEl.classList.add("display")
-    highScoresEl.classList.remove("display")
-    var savedHighScores = JSON.parse(localStorage.getItem(userHighScores));
-    if (savedHighScores != null) {
-
+  // enterScoreEl.classList.add("display");
+  highScoresEl.classList.remove("display");
+  var savedHighScores = JSON.parse(localStorage.getItem("userHighScores"));
+  document.getElementById("list-scores").innerHTML = "";
+  if (savedHighScores != null) {
+    let j = 1;
+    for (var i = 0; i < savedHighScores.length; i++) {
+      let list = document.createElement("li");
+      list.innerHTML =
+        j +
+        ". " +
+        savedHighScores[i].userInitials +
+        " Score: " +
+        savedHighScores[i].time;
+      document.getElementById("list-scores").innerHTML +=
+        list.innerHTML + "</br>";
+      j++;
     }
-  console.log("we did it!!");
+  }
 }

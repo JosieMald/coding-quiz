@@ -21,7 +21,8 @@ h1 {
   text-align: center;
 }
 
-#quiz-info h1, #enter-score h2 {
+#quiz-info h1,
+#enter-score h2 {
   font-size: 45px;
   margin-top: 5%;
 }
@@ -36,13 +37,17 @@ h1 {
   margin-top: 10px;
 }
 
-#quiz-container h3 {
-    text-align: center;
-    margin-top: 5%;
+#quiz-container h3,
+#high-scores h1 {
+  text-align: center;
+  margin-top: 5%;
 }
 
-#quiz-container p, #enter-score {
-    padding-left: 35%;
+#quiz-container p,
+#enter-score {
+  padding-left: 35%;
 }
 
-
+#high-scores h1 {
+  font-size: 35px;
+}
