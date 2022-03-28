@@ -101,6 +101,7 @@ function nextQuestion() {
     document.getElementById("answer-three").innerHTML = "";
     quizContainersEl.classList.add("display");
     enterScoreEl.classList.remove("display");
+    document.getElementById("final-score").innerHTML = "Your final score is " + timeLeft
   } else {
     let question = quizQuestionsAndAnswers[i].question;
     let choice0 = quizQuestionsAndAnswers[i].choices[0];
