@@ -17,7 +17,8 @@ h1 {
   right: 10px;
 }
 
-#quiz-info, #high-scores{
+#quiz-info,
+#high-scores {
   text-align: center;
 }
 

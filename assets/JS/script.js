@@ -1,11 +1,3 @@
-var timerEl = document.getElementById("timer");
-var startEl = document.getElementById("start-button");
-var quizInfoEl = document.getElementById("quiz-info");
-var quizContainersEl = document.getElementById("quiz-container");
-var highScoresEl = document.getElementById("high-scores");
-var enterScoreEl = document.getElementById("enter-score");
-var submitEl = document.getElementById("submit");
-var userInitialsInput = document.querySelector("#user-initials");
 var quizQuestionsAndAnswers = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -56,10 +48,28 @@ var quizQuestionsAndAnswers = [
     correctAnswer: 2,
   },
 ];
+// DOM ELEMENTS ---------------------------------------------------------------
+// <----------- GET ELEMENT BY ID ----------->
+var timerEl = document.getElementById("timer");
+var startEl = document.getElementById("start-button");
+var quizInfoEl = document.getElementById("quiz-info");
+var quizContainersEl = document.getElementById("quiz-container");
+var highScoresEl = document.getElementById("high-scores");
+var enterScoreEl = document.getElementById("enter-score");
+var submitEl = document.getElementById("submit");
+var viewScores = document.getElementById("view-scores");
+var playAgain = document.getElementById("play-again");
+var clearScores = document.getElementById("clear-scores");
+
+// <----------- QUERY SELECTORS ----------->
+var userInitialsInput = document.querySelector("#user-initials");
+
+// VARIABLES ---------------------------------------------------------------
 var userHighScores = [];
 let timeLeft = 90;
 let i = 0;
 
+// TIMER ---------------------------------------------------------------
 startEl.addEventListener("click", function () {
   quizInfoEl.classList.add("display");
   var timeInterval = setInterval(function () {
@@ -81,6 +91,7 @@ startEl.addEventListener("click", function () {
   nextQuestion();
 });
 
+// QUESTIONS AND ANSWERS ---------------------------------------------------------------
 function nextQuestion() {
   if (i >= quizQuestionsAndAnswers.length) {
     document.getElementById("question").innerHTML = "";
@@ -105,10 +116,10 @@ function nextQuestion() {
   }
 }
 
+// EVALUATE CORRECT ANSWER ---------------------------------------------------------------
 quizContainersEl.addEventListener("click", function (event) {
   element = event.target;
   let correctAnswer = quizQuestionsAndAnswers[i].correctAnswer;
-  event.stopPropagation();
   if (element.matches(".box")) {
     var selection = element.getAttribute("data-number");
   }
@@ -122,8 +133,8 @@ quizContainersEl.addEventListener("click", function (event) {
   }
 });
 
+// USER INITIAL INPUT ---------------------------------------------------------------
 submitEl.addEventListener("click", function (event) {
-  event.preventDefault();
   userHighScores.push({
     userInitials: userInitialsInput.value,
     time: timeLeft,
@@ -132,6 +143,7 @@ submitEl.addEventListener("click", function (event) {
   highScores();
 });
 
+// DISPLAY HIGH SCORES ---------------------------------------------------------------
 function highScores() {
   enterScoreEl.classList.add("display");
   highScoresEl.classList.remove("display");
@@ -154,19 +166,33 @@ function highScores() {
   }
 }
 
-var playAgain = document.getElementById("play-again");
-var clearScores = document.getElementById("clear-scores");
-
-playAgain.addEventListener("click", function (event) {
-  event.preventDefault();
+// PLAY AGAIN ---------------------------------------------------------------
+playAgain.addEventListener("click", function () {
   timeLeft = 90;
   i = 0;
   highScoresEl.classList.add("display");
   quizInfoEl.classList.remove("display");
 });
 
-clearScores.addEventListener("click", function(){
-  userHighScores = []
+// CLEAR HIGH SCORES ---------------------------------------------------------------
+clearScores.addEventListener("click", function () {
+  userHighScores = [];
   localStorage.clear();
-  console.log("I clicked");
-})
+});
+
+// VIEW HIGH SCORES ---------------------------------------------------------------
+viewScores.addEventListener("click", function () {
+  quizInfoEl.classList.add("display");
+  quizContainersEl.classList.add("display");
+  highScoresEl.classList.remove("display");
+  clearQuestion();
+});
+
+// CLEARS QUESTIONS AND ANSWERS ---------------------------------------------------------------
+function clearQuestion() {
+  document.getElementById("question").innerHTML = "";
+  document.getElementById("answer-zero").innerHTML = "";
+  document.getElementById("answer-one").innerHTML = "";
+  document.getElementById("answer-two").innerHTML = "";
+  document.getElementById("answer-three").innerHTML = "";
+}
