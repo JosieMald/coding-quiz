@@ -1,5 +1,5 @@
 h1 {
-  color: blueviolet;
+  color: #405879;
 }
 
 .display {
@@ -55,4 +55,8 @@ h1 {
 
 #list-scores {
   padding: 0;
+}
+
+#view-scores {
+  color: #2ec4b6;
 }
