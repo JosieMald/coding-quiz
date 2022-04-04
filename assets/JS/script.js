@@ -76,7 +76,6 @@ startEl.addEventListener("click", function () {
     if (i === quizQuestionsAndAnswers.length) {
       clearInterval(timeInterval);
       timerEl.textContent = "Time: " + timeLeft;
-      console.log("Sorry! Times up");
     } else if (timeLeft == 0) {
       clearInterval(timeInterval);
       timerEl.textContent = "Time: " + timeLeft;
@@ -101,7 +100,7 @@ function nextQuestion() {
     document.getElementById("answer-three").innerHTML = "";
     quizContainersEl.classList.add("display");
     enterScoreEl.classList.remove("display");
-    document.getElementById("final-score").innerHTML = "Your final score is " + timeLeft
+    document.getElementById("final-score").innerHTML = "Your final score is " + timeLeft;
   } else {
     let question = quizQuestionsAndAnswers[i].question;
     let choice0 = quizQuestionsAndAnswers[i].choices[0];
@@ -136,6 +135,7 @@ quizContainersEl.addEventListener("click", function (event) {
 
 // USER INITIAL INPUT ---------------------------------------------------------------
 submitEl.addEventListener("click", function (event) {
+  timerEl.textContent = "";
   userHighScores.push({
     userInitials: userInitialsInput.value,
     time: timeLeft,
@@ -178,6 +178,7 @@ playAgain.addEventListener("click", function () {
 
 // CLEAR HIGH SCORES ---------------------------------------------------------------
 clearScores.addEventListener("click", function () {
+  document.getElementById("list-scores").innerHTML = "";
   userHighScores = [];
   localStorage.clear();
 });
