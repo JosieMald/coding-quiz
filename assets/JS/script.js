@@ -60,6 +60,7 @@ var submitEl = document.getElementById("submit");
 var viewScores = document.getElementById("view-scores");
 var playAgain = document.getElementById("play-again");
 var clearScores = document.getElementById("clear-scores");
+var answersEl = document.getElementById("answers");
 
 // <----------- QUERY SELECTORS ----------->
 var userInitialsInput = document.querySelector("#user-initials");
@@ -71,10 +72,11 @@ let i = 0;
 
 // TIMER ---------------------------------------------------------------
 startEl.addEventListener("click", function () {
+  timerEl.setAttribute("style", "color: green; font-weight: bold; ");
   quizInfoEl.classList.add("display");
   var timeInterval = setInterval(function () {
     if (timeLeft <= 30) {
-      timerEl.setAttribute("style", "color: red; font-weight: bold; ");
+      timerEl.setAttribute("style", "color: red; font-weight: bolder; ");
     }
     if (i === quizQuestionsAndAnswers.length) {
       clearInterval(timeInterval);

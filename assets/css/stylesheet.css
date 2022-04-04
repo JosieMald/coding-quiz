@@ -20,7 +20,14 @@ h1, h2 {
 .box {
   cursor: pointer;
   font-size: 18px;
+  width: 60%;
 }
+
+#quiz-container p:hover {
+  background-color: #2ec4b6;
+  opacity: .8;
+}
+
 #timer {
   position: absolute;
   text-align: end;
@@ -58,7 +65,7 @@ h1, h2 {
   font-size: 25px;
 }
 
-#quiz-container p,
+
 #enter-score {
   padding-left: 35%;
 }
@@ -87,4 +94,11 @@ h1, h2 {
 #clear-scores {
   background-color: #2ec4b6;
   color: #405879;
+}
+
+#answers {
+  width: 30%;
+  position: relative;
+  left: 15%;
+  padding-left: 15%;
 }
