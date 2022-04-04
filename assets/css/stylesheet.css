@@ -76,4 +76,15 @@ h1, h2 {
   cursor: pointer;
 }
 
+#submit, #start-button, #play-again, #clear-scores {
+  background-color: #405879;
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bolder;
+}
 
+#clear-scores {
+  background-color: #2ec4b6;
+  color: #405879;
+}
