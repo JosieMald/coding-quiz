@@ -141,6 +141,7 @@ submitEl.addEventListener("click", function (event) {
     time: timeLeft,
   });
   localStorage.setItem("userHighScores", JSON.stringify(userHighScores));
+  userInitialsInput.value = "";
   highScores();
 });
 

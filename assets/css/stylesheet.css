@@ -2,6 +2,7 @@ h1 {
   color: #405879;
 }
 
+
 .display {
   display: none;
 }
@@ -9,6 +10,10 @@ h1 {
 .container {
   width: 75%;
   margin-left: 15%;
+}
+
+.box {
+  cursor: pointer;
 }
 #timer {
   position: absolute;
@@ -59,4 +64,7 @@ h1 {
 
 #view-scores {
   color: #2ec4b6;
+  cursor: pointer;
 }
+
+
