@@ -1,5 +1,10 @@
-h1 {
+* {
+  font-family: 'Playfair Display', serif;
+}
+
+h1, h2 {
   color: #405879;
+  font-family: 'Archivo', sans-serif;
 }
 
 
@@ -14,12 +19,15 @@ h1 {
 
 .box {
   cursor: pointer;
+  font-size: 18px;
 }
 #timer {
   position: absolute;
   text-align: end;
-  top: 0px;
-  right: 10px;
+  top: -15px;
+  right: 15px;
+  color: green;
+  font-size: 25px;
 }
 
 #quiz-info,
@@ -47,6 +55,7 @@ h1 {
 #high-scores h1 {
   text-align: center;
   margin-top: 5%;
+  font-size: 25px;
 }
 
 #quiz-container p,

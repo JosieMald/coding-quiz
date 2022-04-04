@@ -73,6 +73,9 @@ let i = 0;
 startEl.addEventListener("click", function () {
   quizInfoEl.classList.add("display");
   var timeInterval = setInterval(function () {
+    if (timeLeft <= 30) {
+      timerEl.setAttribute("style", "color: red; font-weight: bold; ");
+    }
     if (i === quizQuestionsAndAnswers.length) {
       clearInterval(timeInterval);
       timerEl.textContent = "Time: " + timeLeft;
