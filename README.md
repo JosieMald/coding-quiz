@@ -16,3 +16,5 @@ so that I can gauge my progress compared to my peers.
 ```
 A quiz created to help users time your progress as you answer questions. When questions are wrong the user is deducted 10 seconds from there score. The user can compare from there previous scores by looking at the high scores page which displays there initials and score time.
 ```
+
+<!-- This project was created using DOM manipulation and local storage. -->

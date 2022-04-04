@@ -1,13 +1,16 @@
+/* UNIVERSAL SELECTORS */
 * {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
-h1, h2 {
+/* TYPE SELECTORS */
+h1,
+h2 {
   color: #405879;
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
 }
 
-
+/* CLASS SELECTORS */
 .display {
   display: none;
 }
@@ -23,9 +26,10 @@ h1, h2 {
   width: 60%;
 }
 
+/* ID SELECTORS */
 #quiz-container p:hover {
   background-color: #2ec4b6;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 #timer {
@@ -65,7 +69,6 @@ h1, h2 {
   font-size: 25px;
 }
 
-
 #enter-score {
   padding-left: 35%;
 }
@@ -83,7 +86,10 @@ h1, h2 {
   cursor: pointer;
 }
 
-#submit, #start-button, #play-again, #clear-scores {
+#submit,
+#start-button,
+#play-again,
+#clear-scores {
   background-color: #405879;
   color: white;
   border-radius: 5px;
