@@ -66,7 +66,7 @@ var userInitialsInput = document.querySelector("#user-initials");
 
 // VARIABLES ---------------------------------------------------------------
 var userHighScores = [];
-let timeLeft = 90;
+let timeLeft = 60;
 let i = 0;
 
 // TIMER ---------------------------------------------------------------
