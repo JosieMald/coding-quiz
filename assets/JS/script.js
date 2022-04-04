@@ -173,7 +173,7 @@ function highScores() {
 
 // PLAY AGAIN ---------------------------------------------------------------
 playAgain.addEventListener("click", function () {
-  timeLeft = 90;
+  timeLeft = 60;
   i = 0;
   highScoresEl.classList.add("display");
   quizInfoEl.classList.remove("display");
